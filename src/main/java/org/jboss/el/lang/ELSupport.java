@@ -211,6 +211,8 @@ public class ELSupport {
 
     protected final static Number coerceToNumber(final Number number,
             final Class<?> type) throws IllegalArgumentException {
+    	 if (type.isInstance(number))
+    		return number;
         if (Long.TYPE == type || Long.class.equals(type)) {
             return new Long(number.longValue());
         }
@@ -248,9 +250,14 @@ public class ELSupport {
 
     public final static Number coerceToNumber(final Object obj, final Class<?> type)
             throws IllegalArgumentException {
-        if (obj == null || "".equals(obj)) {
-            return coerceToNumber(ZERO, type);
-        }     
+		if (obj == null || "".equals(obj)) {
+			if (type == Number.class) {
+				return null;
+			}
+			else {
+				return coerceToNumber(ZERO, type);
+			}
+		}
 
         if (obj instanceof String) {
             return coerceToNumber((String) obj, type);
@@ -325,7 +332,9 @@ public class ELSupport {
         if (obj!=null && obj.getClass().equals(type)) {   
             return obj;
         }
-        
+        else if (obj != null && type.isInstance(obj)) {
+        	return obj;
+        }
         if (String.class.equals(type)) {
             return coerceToString(obj);
         }
@@ -338,9 +347,7 @@ public class ELSupport {
         if (Boolean.class.equals(type) || Boolean.TYPE == type) {
             return coerceToBoolean(obj);
         }
-        if (obj != null && type.isAssignableFrom(obj.getClass())) {
-            return obj;
-        }
+
         if (type.isEnum()) {
             return coerceToEnum(obj, type);
         }
