@@ -13,7 +13,7 @@ import javax.el.PropertyNotWritableException;
 
 public class VariableResolver extends ELResolver {
 	
-	private final Map vars = new HashMap();
+	private final Map<Object, Object> vars = new HashMap<Object, Object>();
 	
 	public void setValue(String name, Object value) {
 		this.vars.put(name, value);

@@ -8,15 +8,15 @@ import javax.el.VariableMapper;
 
 public class VariableMapperImpl extends VariableMapper {
 	
-	private final Map vars = new HashMap();
+	private final Map<String, ValueExpression> vars = new HashMap<String, ValueExpression>();
 
 	public ValueExpression resolveVariable(String variable) {
-		return (ValueExpression) this.vars.get(variable);
+		return this.vars.get(variable);
 	}
 
 	public ValueExpression setVariable(String variable,
 			ValueExpression expression) {
-		return (ValueExpression) this.vars.put(variable, expression);
+		return this.vars.put(variable, expression);
 	}
 
 }

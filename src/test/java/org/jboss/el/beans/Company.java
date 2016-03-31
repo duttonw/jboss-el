@@ -5,20 +5,20 @@ import java.util.List;
 
 public final class Company {
 
-    private List departments;
+    private List<Department> departments;
     private String name;
     private Employee president;
     
     public Company() {
         super();
-        this.departments = new ArrayList();
+        this.departments = new ArrayList<Department>();
     }
 
-    public List getDepartments() {
+    public List<Department> getDepartments() {
         return departments;
     }
 
-    public void setDepartments(List departments) {
+    public void setDepartments(List<Department> departments) {
         this.departments = departments;
     }
 

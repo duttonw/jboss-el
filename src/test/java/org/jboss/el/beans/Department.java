@@ -6,12 +6,12 @@ import java.util.List;
 public final class Department {
 
     private String name;
-    private List employees;
+    private List<Employee> employees;
     private Employee director;
     
     public Department() {
         super();
-        this.employees = new ArrayList();
+        this.employees = new ArrayList<Employee>();
     }
 
     public Employee getDirector() {
@@ -22,11 +22,11 @@ public final class Department {
         this.director = director;
     }
 
-    public List getEmployees() {
+    public List<Employee> getEmployees() {
         return employees;
     }
 
-    public void setEmployees(List employees) {
+    public void setEmployees(List<Employee> employees) {
         this.employees = employees;
     }
 

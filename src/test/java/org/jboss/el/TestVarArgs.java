@@ -28,12 +28,11 @@ public class TestVarArgs {
 	
 	@Test
     public void main() throws Exception {
-        Class c = Security.class;
+        Class<?> c = Security.class;
         Method[] m = c.getMethods();
         
         FunctionMapperImpl fn = new FunctionMapperImpl();
         
-        Method s = null;
         for (int i = 0; i < m.length; i++) {
             if (Modifier.isStatic(m[i].getModifiers())) {
             	System.out.println("Found Method: " + m[i]);

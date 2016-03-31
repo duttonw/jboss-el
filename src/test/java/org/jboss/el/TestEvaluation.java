@@ -28,7 +28,7 @@ public class TestEvaluation {
         ValueExpression ve = this.factory.createValueExpression(this.context, "#{company.departments.{x|x.employees.{x|x.lastName}}}", Object.class);
         //Object ognl = Ognl.parseExpression("company.departments.{employees.{lastName}}");
         
-        Map ctx = new HashMap();
+        Map<String, Object> ctx = new HashMap<String, Object>();
         ctx.put("company", Example.createCompany());
         
         int runs = 10000;
@@ -91,7 +91,7 @@ public class TestEvaluation {
         this.evalMethod(expr, new Class[0]);
     }
 
-    public void evalMethod(String expr, Class[] types, Object... args) throws Exception {
+    public void evalMethod(String expr, Class<?>[] types, Object... args) throws Exception {
         int runs = 10000;
         
         MethodExpression me = this.factory.createMethodExpression(this.context, expr, String.class, types);

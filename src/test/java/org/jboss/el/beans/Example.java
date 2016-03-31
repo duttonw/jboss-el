@@ -2,7 +2,6 @@ package org.jboss.el.beans;
 
 public class Example {
     
-    private static String[] Departments = new String[] { "HR", "RD" };
 
     public Example() {
         super();
