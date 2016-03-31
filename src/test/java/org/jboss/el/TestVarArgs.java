@@ -17,6 +17,7 @@ import javax.el.ValueExpression;
 import org.jboss.el.beans.Security;
 import org.jboss.el.parser.ELParser;
 import org.jboss.el.parser.SimpleNode;
+import org.junit.Test;
 
 /**
  *
@@ -24,7 +25,9 @@ import org.jboss.el.parser.SimpleNode;
  */
 public class TestVarArgs {
     
-    public static void main(String[] argv) throws Exception {
+	
+	@Test
+    public void main() throws Exception {
         Class c = Security.class;
         Method[] m = c.getMethods();
         

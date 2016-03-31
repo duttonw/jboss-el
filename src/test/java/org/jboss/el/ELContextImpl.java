@@ -1,8 +1,5 @@
 package org.jboss.el;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.el.ArrayELResolver;
 import javax.el.BeanELResolver;
 import javax.el.CompositeELResolver;

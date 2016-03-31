@@ -1,12 +1,13 @@
 package org.jboss.el;
 
 
-import junit.framework.TestCase;
 import org.jboss.el.parser.ELParser;
 import org.jboss.el.parser.SimpleNode;
+import org.junit.Test;
 
-public class TestParsing extends TestCase {
+public class TestParsing  {
 	
+	@Test
 	public void testParsing() throws Exception {
 		parse("#{foo.a.b}");
 		parse("#{foo.a['b']}");

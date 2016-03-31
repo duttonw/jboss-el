@@ -1,30 +1,29 @@
 package org.jboss.el;
 
-import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
+
 import javax.el.ExpressionFactory;
 import javax.el.MethodExpression;
 import javax.el.ValueExpression;
-//import ognl.Ognl;
-import org.jboss.el.beans.Employee;
 
 import org.jboss.el.beans.Example;
+import org.junit.Before;
+import org.junit.Test;
 
-import junit.framework.TestCase;
-
-public class TestEvaluation extends TestCase {
+public class TestEvaluation {
     
     private ExpressionFactory factory = null;
-    private ExpressionFactory sun = null;
     private ELContextImpl context = null;
     
+    @Test
     public void testListeners() throws Exception {
         for (int i = 0; i < 5; i++) {
             evalMethod("#{company.departments.{x|x.employees.{x|x.sayHello}}}", new Class[] { String.class},  "Holden");
         }
     }
     
+    @Test
     public void testPerformance() throws Exception {
         ValueExpression ve = this.factory.createValueExpression(this.context, "#{company.departments.{x|x.employees.{x|x.lastName}}}", Object.class);
         //Object ognl = Ognl.parseExpression("company.departments.{employees.{lastName}}");
@@ -47,14 +46,14 @@ public class TestEvaluation extends TestCase {
         //}
         System.out.println("Ognl [" + ((System.currentTimeMillis() - now)/((double) runs)) + "] " + value);
     }
-    
+    @Test
     public void testSetters() throws Exception {
         for (int i = 0; i < 5; i++) {
             //evalSetter("#{company.departments.{x|x.employees}.{x|x.lastName}}", "Hookom");
             evalSetter("#{company.departments.{x|x.employees.{x|x.lastName}}}", "Holden");
         }
     }
-    
+    @Test
     public void testEvaluation() throws Exception {
         for (int i = 0; i < 5; i++) {
             eval("#{company.departments}");
@@ -66,7 +65,7 @@ public class TestEvaluation extends TestCase {
             eval("#{company.departments.{x|x.employees.{x|x.sayHello(name)}}}");
         }
     }
-    
+    @Test
     public void testMethodExpressions() throws Exception {
         for (int i = 0; i < 5; i++) {
             evalMethod("#{company.departments[0].employees[0].sayHello(name)}");
@@ -117,8 +116,8 @@ public class TestEvaluation extends TestCase {
         System.out.println("New [" + ((System.currentTimeMillis() - now)/((double) runs)) + "] " +  expr + " " + value);
     }
     
+    @Before
     public void setUp() throws Exception {
-        super.setUp();
         this.factory = new ExpressionFactoryImpl();
         //this.sun = new com.sun.el.ExpressionFactoryImpl();
         this.context = new ELContextImpl();

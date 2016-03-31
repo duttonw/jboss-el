@@ -11,15 +11,15 @@ package org.jboss.el.util;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import junit.framework.TestCase;
+
+import org.junit.Assert;
+import org.junit.Test;
 
 /**
  *
  * @author jhook
  */
-public class ReferenceMapTestCase extends TestCase {
+public class ReferenceMapTestCase {
     
     public static class Foo {
         private final int id;
@@ -56,6 +56,7 @@ public class ReferenceMapTestCase extends TestCase {
 		}
     }
     
+    @Test
     public void testReferences() throws Exception {
         
         ReferenceCache<Foo,Bar> map = new ReferenceCache<Foo,Bar>(ReferenceCache.Type.Weak, ReferenceCache.Type.Weak) {
@@ -81,7 +82,7 @@ public class ReferenceMapTestCase extends TestCase {
         System.out.println("\n----------------\n" + map.size() + "\n-----------------------------\n");
         
         for (Foo f : keys) {
-            assertNotNull("Key not null " + f, map.get(f));
+            Assert.assertNotNull("Key not null " + f, map.get(f));
         }
         
         // comment and uncomment this line
@@ -99,7 +100,7 @@ public class ReferenceMapTestCase extends TestCase {
         }
         
         for (Foo f : keys) {
-            assertNull("Key null " + f, map.get(f));
+            Assert.assertNull("Key null " + f, map.get(f));
         }
         
         
