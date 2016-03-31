@@ -2,7 +2,6 @@
 
 package org.jboss.el.parser;
 
-import java.text.MessageFormat;
 
 import javax.el.ELException;
 import javax.el.ELResolver;

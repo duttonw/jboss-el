@@ -326,7 +326,7 @@ public abstract class ELArithmetic {
         return (obj != null && isNumberType(obj.getClass()));
     }
 
-    public final static boolean isNumberType(final Class type) {
+    public final static boolean isNumberType(final Class<?> type) {
     	return Number.class.isAssignableFrom(type)
     			               || type == Long.TYPE
     			                || type == Double.TYPE
@@ -364,7 +364,7 @@ public abstract class ELArithmetic {
             return coerce(ZERO);
         }
 
-        Class objType = obj.getClass();
+        Class<?> objType = obj.getClass();
         if (Character.class.equals(objType) || Character.TYPE == objType) {
             return coerce(new Short((short) ((Character) obj).charValue()));
         }

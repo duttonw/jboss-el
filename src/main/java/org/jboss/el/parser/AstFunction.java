@@ -2,7 +2,6 @@
 
 package org.jboss.el.parser;
 
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import javax.el.ELException;

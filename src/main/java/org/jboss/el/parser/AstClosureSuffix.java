@@ -6,11 +6,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.Map;
 import javax.el.ELException;
 import javax.el.MethodInfo;
-import javax.el.PropertyNotWritableException;
 import org.jboss.el.lang.EvaluationContext;
 
 public final class AstClosureSuffix extends ValueSuffixNode {
@@ -44,7 +42,7 @@ public final class AstClosureSuffix extends ValueSuffixNode {
     }
 
      public boolean isReadOnly(Object base, EvaluationContext ctx) throws ELException {
-        Collection c = this.toCollection(base);
+        Collection c = toCollection(base);
         if (c == null || c.isEmpty()) {
             return true;
         } else {
@@ -55,7 +53,7 @@ public final class AstClosureSuffix extends ValueSuffixNode {
     }
     
     public Object getValue(Object base, EvaluationContext ctx) throws ELException {
-        Collection c = this.toCollection(base);
+        Collection c = toCollection(base);
         if (c == null) {
             return null;
         } else if (c.isEmpty()) {
@@ -81,7 +79,7 @@ public final class AstClosureSuffix extends ValueSuffixNode {
     }
     
     public Object getTarget(Object base, EvaluationContext ctx) throws ELException {
-        Collection c = this.toCollection(base);
+        Collection c = toCollection(base);
         if (c == null || c.isEmpty()) {
             return null;
         } else {
@@ -101,7 +99,7 @@ public final class AstClosureSuffix extends ValueSuffixNode {
     }
     
     public MethodInfo getMethodInfo(Object base, EvaluationContext ctx, Class[] paramTypes) throws ELException {
-        Collection c = this.toCollection(base);
+        Collection c = toCollection(base);
         if (c == null || c.isEmpty()) {
             return null;
         } else {
@@ -112,7 +110,7 @@ public final class AstClosureSuffix extends ValueSuffixNode {
     }
     
     public Object invoke(Object base, EvaluationContext ctx, Class[] paramTypes, Object[] paramValues) throws ELException {
-        Collection c = this.toCollection(base);
+        Collection c = toCollection(base);
         if (c == null) {
             return null;
         } else if (c.isEmpty()) {
@@ -134,7 +132,7 @@ public final class AstClosureSuffix extends ValueSuffixNode {
     }
     
     public void setValue(Object base, EvaluationContext ctx, Object value) throws ELException {
-        Collection c = this.toCollection(base);
+        Collection c = toCollection(base);
         if (c != null && !c.isEmpty()) {
             AstClosure closure = this.closure();
             for (Object o : c) {

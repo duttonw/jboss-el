@@ -32,7 +32,7 @@ import javax.el.MethodNotFoundException;
 
 import org.jboss.el.lang.ELSupport;
 
-import com.sun.org.apache.xpath.internal.operations.Mod;
+
 
 /**
  * Utilities for Managing Serialization and Reflection
@@ -280,7 +280,7 @@ public final class ReflectionUtil {
         return invokeMethod(base, m, paramValues);
     }
     
-    private static final Object[] EMPTY_PARAMS = new Object[0];
+
     
     public static Object invokeMethod(Object base, Method m, Object[] paramValues) throws ELException {
         if (m == null) throw new MethodNotFoundException();
