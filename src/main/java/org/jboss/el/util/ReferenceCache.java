@@ -194,19 +194,23 @@ public abstract class ReferenceCache<K,V> {
     
     
     public void startMonitor() {
-        if (queueMonitor == null) {
-            queueMonitor = new Thread(this.queue);
-            queueMonitor.setName("jboss EL reference queue cleanup thread");
-            queueMonitor.setDaemon(true);        
-            queueMonitor.start();
+        synchronized(this) {
+	    	if (queueMonitor == null) {
+	            queueMonitor = new Thread(this.queue);
+	            queueMonitor.setName("jboss EL reference queue cleanup thread");
+	            queueMonitor.setDaemon(true);        
+	            queueMonitor.start();
+	        }
         }
     }
     
     public void stopMonitor() {
-        if (queueMonitor!=null) {
-            queueMonitor.interrupt();
-            queueMonitor = null;
-        }
+    	synchronized(this) {
+	        if (queueMonitor!=null) {
+	            queueMonitor.interrupt();
+	            queueMonitor = null;
+	        }
+    	}
     }
     
     private final ReferenceFactory<K,V> toFactory(Type type) {
