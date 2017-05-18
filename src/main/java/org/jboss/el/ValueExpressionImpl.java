@@ -169,9 +169,14 @@ public final class ValueExpressionImpl extends ValueExpression implements
      */
     public Class<?> getType(ELContext context) throws PropertyNotFoundException,
             ELException {
-        EvaluationContext ctx = new EvaluationContext(context, this.fnMapper,
-                this.varMapper);
-        return this.getNode().getType(ctx);
+    	try {
+	        EvaluationContext ctx = new EvaluationContext(context, this.fnMapper,
+	                this.varMapper);
+	        return this.getNode().getType(ctx);
+    	}
+    	catch (Exception e) {
+    		throw new ELException("Error getting type for " + this.expr, e);
+    	}
     }
 
     /*
@@ -181,13 +186,18 @@ public final class ValueExpressionImpl extends ValueExpression implements
      */
     public Object getValue(ELContext context) throws PropertyNotFoundException,
             ELException {
-        EvaluationContext ctx = new EvaluationContext(context, this.fnMapper,
-                this.varMapper);
-        Object value = this.getNode().getValue(ctx);
-        if (this.expectedType != null) {
-            return ELSupport.coerceToType(value, this.expectedType);
-        }
-        return value;
+    	try {
+	        EvaluationContext ctx = new EvaluationContext(context, this.fnMapper,
+	                this.varMapper);
+	        Object value = this.getNode().getValue(ctx);
+	        if (this.expectedType != null) {
+	            return ELSupport.coerceToType(value, this.expectedType);
+	        }
+	        return value;
+    	}
+    	catch (Exception e) {
+    		throw new ELException("Error getting value for " + this.expr, e);
+    	}
     }
 
     /*
@@ -244,9 +254,14 @@ public final class ValueExpressionImpl extends ValueExpression implements
     public void setValue(ELContext context, Object value)
             throws PropertyNotFoundException, PropertyNotWritableException,
             ELException {
-        EvaluationContext ctx = new EvaluationContext(context, this.fnMapper,
-                this.varMapper);
-        this.getNode().setValue(ctx, value);
+    	try {
+	        EvaluationContext ctx = new EvaluationContext(context, this.fnMapper,
+	                this.varMapper);
+	        this.getNode().setValue(ctx, value);
+    	}
+    	catch (Exception e) {
+    		throw new ELException("Error setting value for " + this.expr, e);
+    	}
     }
 
     public void writeExternal(ObjectOutput out) throws IOException {
