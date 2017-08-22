@@ -51,9 +51,10 @@ public class ELSupport {
     }
 
     /**
+     * Compare two objects (first coerce, then compare)
      * @param obj0
      * @param obj1
-     * @return
+     * @return     a negative integer, zero, or a positive integer as the first argument is less than, equal to, or greater than the second.
      * @throws EvaluationException
      */
     public final static int compare(final Object obj0, final Object obj1)
@@ -94,9 +95,10 @@ public class ELSupport {
     }
 
     /**
+     * Compares to objects (first coerce, then compare)
      * @param obj0
      * @param obj1
-     * @return
+     * @return true if both objects are equals 
      * @throws EvaluationException
      */
     public final static boolean equals(final Object obj0, final Object obj1)
@@ -140,9 +142,10 @@ public class ELSupport {
     }
     
     /**
-     * @param obj
-     * @param type
-     * @return
+     * Convert and object to enum type
+     * @param obj The object to convert
+     * @param type the type to obtain.
+     * @return the object converted to enum
      */
     public final static Enum coerceToEnum(final Object obj, Class type) {
         if (obj == null || "".equals(obj)) {
@@ -155,8 +158,10 @@ public class ELSupport {
     }
 
     /**
-     * @param obj
-     * @return
+     * Converts and object to boolean
+     * @param obj The object to convert.
+     * @return The boolean value of the object
+     * @throws IllegalArgumentException if the object cannot be converted to boolean
      */
     public final static Boolean coerceToBoolean(final Object obj)
             throws IllegalArgumentException {
@@ -308,8 +313,9 @@ public class ELSupport {
     }
 
     /**
-     * @param obj
-     * @return
+     * Converts the object to String, empty String if obj is null
+     * @param obj object to convert
+     * @return object converted to String
      */
     public final static String coerceToString(final Object obj) {
         if (obj == null) {
@@ -369,8 +375,8 @@ public class ELSupport {
     }
 
     /**
-     * @param obj
-     * @return
+     * @param obj Array of objects to check for nulls
+     * @return true if any object in the array is null
      */
     public final static boolean containsNulls(final Object[] obj) {
         for (int i = 0; i < obj.length; i++) {

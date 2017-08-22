@@ -100,13 +100,14 @@ public final class ReflectionUtil {
     /**
      * Converts an array of Class names to Class types
      *
-     * @param s
-     * @return
+     * @param s array of names
+     * @return array of class
      * @throws ClassNotFoundException
      */
     public static Class[] toTypeArray(String[] s) throws ClassNotFoundException {
-        if (s == null)
+        if (s == null) {
             return null;
+        }
         Class[] c = new Class[s.length];
         for (int i = 0; i < s.length; i++) {
             c[i] = forName(s[i]);
@@ -117,12 +118,13 @@ public final class ReflectionUtil {
     /**
      * Converts an array of Class types to Class names
      *
-     * @param c
-     * @return
+     * @param c array of class
+     * @return array of classNames
      */
     public static String[] toTypeNameArray(Class[] c) {
-        if (c == null)
+        if (c == null) {
             return null;
+        }
         String[] s = new String[c.length];
         for (int i = 0; i < c.length; i++) {
             s[i] = c[i].getName();
