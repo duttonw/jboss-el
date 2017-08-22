@@ -27,7 +27,7 @@ import org.jboss.el.lang.EvaluationContext;
  */
 public abstract class BooleanNode extends SimpleNode {
     /**
-     * @param i
+     * @param i the node
      */
     public BooleanNode(int i) {
         super(i);

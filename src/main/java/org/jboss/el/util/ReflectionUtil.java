@@ -102,7 +102,7 @@ public final class ReflectionUtil {
      *
      * @param s array of names
      * @return array of class
-     * @throws ClassNotFoundException
+     * @throws ClassNotFoundException Throws if class invalid
      */
     public static Class[] toTypeArray(String[] s) throws ClassNotFoundException {
         if (s == null) {
@@ -240,7 +240,7 @@ public final class ReflectionUtil {
      * @param paramTypes
      *            the parameter types to use
      * @return the method specified
-     * @throws MethodNotFoundException
+     * @throws MethodNotFoundException throws if method invalid
      */
     public static Method getMethod(Object base, Object property,
             Class[] paramTypes) throws MethodNotFoundException {

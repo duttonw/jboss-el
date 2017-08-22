@@ -69,6 +69,8 @@ public class Token {
    *
    * to the following switch statement. Then you can cast matchedToken
    * variable to the appropriate type and use it in your lexical actions.
+   * @param ofKind the kind of token
+   * @return the new token
    */
   public static final Token newToken(int ofKind)
   {

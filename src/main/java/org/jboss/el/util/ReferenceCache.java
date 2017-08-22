@@ -179,6 +179,9 @@ public abstract class ReferenceCache<K,V> {
     
     /**
      * Creates a new instance of ReferenceMap
+     *
+     * @param keyType Key Type
+     * @param valueType Value Type
      */
     public ReferenceCache(Type keyType, Type valueType) {
         this(keyType, valueType, 0);

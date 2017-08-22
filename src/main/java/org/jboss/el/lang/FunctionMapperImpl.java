@@ -104,7 +104,9 @@ public class FunctionMapperImpl
         protected String localName;
     
         /**
-         * 
+         * @param prefix the prefix
+         * @param localName the local name
+         * @param m the method
          */
         public Function(String prefix, String localName, Method m) {
             if (localName == null) {
