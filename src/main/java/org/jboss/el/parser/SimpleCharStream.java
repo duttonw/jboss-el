@@ -201,8 +201,8 @@ public class SimpleCharStream
   /**
    * @deprecated 
    * @see #getEndColumn
+   * @return column number
    */
-
   public int getColumn() {
      return bufcolumn[bufpos];
   }
@@ -210,8 +210,8 @@ public class SimpleCharStream
   /**
    * @deprecated 
    * @see #getEndLine
+   * @return line number
    */
-
   public int getLine() {
      return bufline[bufpos];
   }
@@ -390,6 +390,8 @@ public class SimpleCharStream
 
   /**
    * Method to adjust line and column numbers for the start of a token.
+   * @param newLine the line number
+   * @param newCol the column number
    */
   public void adjustBeginLineColumn(int newLine, int newCol)
   {

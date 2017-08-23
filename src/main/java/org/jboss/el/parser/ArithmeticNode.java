@@ -29,7 +29,7 @@ import org.jboss.el.lang.EvaluationContext;
 public class ArithmeticNode extends SimpleNode {
 
     /**
-     * @param i
+     * @param i the node
      */
     public ArithmeticNode(int i) {
         super(i);

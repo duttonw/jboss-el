@@ -44,30 +44,29 @@ import org.jboss.el.util.ReflectionUtil;
  * An <code>Expression</code> that refers to a method on an object.
  * 
  * <p>
- * <code>The {@link ExpressionFactory#createMethodExpression} method
+ * The <code>{@link ExpressionFactory#createMethodExpression}</code> metho
  * can be used to parse an expression string and return a concrete instance
  * of <code>MethodExpression</code> that encapsulates the parsed expression.
- * The {@link FunctionMapper} is used at parse time, not evaluation time, 
- * so one is not needed to evaluate an expression using this class.  
- * However, the {@link ELContext} is needed at evaluation time.</p>
+ * The <code>{@link FunctionMapper}</code> is used at parse time, not evaluation
+ * time, so one is not needed to evaluate an expression using this class.
+ * However, the <code>{@link ELContext}</code> is needed at evaluation time.</p>
  *
- * <p>The {@link #getMethodInfo} and {@link #invoke} methods will evaluate the 
- * expression each time they are called. The {@link ELResolver} in the 
- * <code>ELContext</code> is used to resolve the top-level variables and to 
- * determine the behavior of the <code>.</code> and <code>[]</code> 
- * operators. For any of the two methods, the {@link ELResolver#getValue} 
- * method is used to resolve all properties up to but excluding the last 
- * one. This provides the <code>base</code> object on which the method
- * appears. If the <code>base</code> object is null, a 
- * <code>NullPointerException</code> must be thrown. At the last resolution, 
- * the final <code>property</code> is then coerced to a <code>String</code>,
- * which provides the name of the method to be found. A method matching the 
- * name and expected parameters provided at parse time is found and it is 
- * either queried or invoked (depending on the method called on this
- * <code>MethodExpression</code>).</p>
+ * <p>The <code>{@link #getMethodInfo}</code> and <code>{@link #invoke}</code>
+ * methods will evaluate the expression each time they are called. The <code>
+ * {@link ELResolver}</code> in the <code>ELContext</code> is used to resolve
+ * the top-level variables and to determine the behavior of the <code>.</code>
+ * and <code>[]</code> operators. For any of the two methods, the <code>{@link
+ * ELResolver#getValue}</code> method is used to resolve all properties up to
+ * but excluding the last one. This provides the <code>base</code> object on
+ * which the method appears. If the <code>base</code> object is null, a <code>
+ * NullPointerException</code> must be thrown. At the last resolution, the final
+ * <code>property</code> is then coerced to a <code>String</code>,which provides
+ * the name of the method to be found. A method matching the name and expected
+ * parameters provided at parse time is found and it is either queried or invoked
+ * (depending on the method called on this <code>MethodExpression</code>).</p>
  *
- * <p>See the notes about comparison, serialization and immutability in 
- * the {@link Expression} javadocs.
+ * <p>See the notes about comparison, serialization and immutability in
+ * the <code>{@link Expression}</code> javadocs.
  *
  * @see javax.el.ELResolver
  * @see javax.el.Expression
@@ -100,11 +99,12 @@ public final class MethodExpressionImpl extends MethodExpression implements
     }
 
     /**
-     * @param expr
-     * @param node
-     * @param fnMapper
-     * @param expectedType
-     * @param paramTypes
+     * @param expr Expression
+     * @param node The node
+     * @param fnMapper Function mapper
+     * @param varMapper Variable mapper
+     * @param expectedType Expected type
+     * @param paramTypes Parameter types
      */
     public MethodExpressionImpl(String expr, Node node,
             FunctionMapper fnMapper, VariableMapper varMapper,

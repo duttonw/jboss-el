@@ -52,10 +52,10 @@ public class ELSupport {
 
     /**
      * Compare two objects (first coerce, then compare)
-     * @param obj0
-     * @param obj1
+     * @param obj0 left hand
+     * @param obj1 right hand
      * @return     a negative integer, zero, or a positive integer as the first argument is less than, equal to, or greater than the second.
-     * @throws EvaluationException
+     * @throws ELException throws when invalid
      */
     public final static int compare(final Object obj0, final Object obj1)
             throws ELException {
@@ -96,10 +96,10 @@ public class ELSupport {
 
     /**
      * Compares to objects (first coerce, then compare)
-     * @param obj0
-     * @param obj1
+     * @param obj0 left hand
+     * @param obj1 right hand
      * @return true if both objects are equals 
-     * @throws EvaluationException
+     * @throws ELException throws when invalid
      */
     public final static boolean equals(final Object obj0, final Object obj1)
             throws ELException {

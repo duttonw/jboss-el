@@ -22,7 +22,10 @@ public class ParseException extends Exception {
    * This constructor calls its super class with the empty string
    * to force the "toString" method of parent class "Throwable" to
    * print the error message in the form:
-   *     ParseException: <result of getMessage>
+   *     ParseException: result of getMessage
+   * @param currentTokenVal the token value
+   * @param expectedTokenSequencesVal the number
+   * @param tokenImageVal the image value
    */
   public ParseException(Token currentTokenVal,
                         int[][] expectedTokenSequencesVal,
@@ -143,6 +146,8 @@ public class ParseException extends Exception {
    * Used to convert raw characters to their escaped version
    * when these raw version cannot be used as part of an ASCII
    * string literal.
+   * @param str the string to escape
+   * @return the escaped string
    */
   protected String add_escapes(String str) {
       StringBuffer retval = new StringBuffer();
