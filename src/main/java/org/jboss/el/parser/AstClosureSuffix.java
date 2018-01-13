@@ -142,7 +142,9 @@ public final class AstClosureSuffix extends ValueSuffixNode {
     }
     
     private static class ClosureList extends ArrayList {
-        public ClosureList(int size) {
+        private static final long serialVersionUID = 1L;
+
+		public ClosureList(int size) {
             super(size);
         }
     }

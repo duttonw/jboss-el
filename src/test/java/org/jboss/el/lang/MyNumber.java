@@ -4,7 +4,9 @@
 package org.jboss.el.lang;
 
 class MyNumber extends Number {
-    @Override
+    private static final long serialVersionUID = 1L;
+
+	@Override
     public double doubleValue() {
         return 3.562;
     }
